@@ -1,6 +1,7 @@
 <template>
   <div class="m2-component">
-    <h5 class="mb-3">日本のマネーサプライM2</h5>
+    <h5 class="mb-1">日本のマネーサプライM2</h5>
+    <p class="text-muted small mb-3">単位: JPY Billion</p>
 
     <div class="mb-3 d-flex gap-2 align-items-center flex-wrap">
       <label for="startDate" class="mb-0">開始日:</label>
@@ -20,14 +21,16 @@
         @change="updateChart">
     </div>
 
-    <iframe
-      :src="chartUrl"
-      height="300"
-      width="100%"
-      frameborder="0"
-      scrolling="no"
-      :key="chartUrl">
-    </iframe>
+    <div class="iframe-container">
+      <iframe
+        :src="chartUrl"
+        height="300"
+        width="600"
+        frameborder="0"
+        scrolling="no"
+        :key="chartUrl">
+      </iframe>
+    </div>
     <div class="mt-2">
       source: <a href="https://jp.tradingeconomics.com/japan/money-supply-m2" target="_blank" rel="noopener noreferrer">tradingeconomics.com</a>
     </div>
@@ -65,7 +68,12 @@ export default {
   padding: 1rem 0;
 }
 
-iframe {
-  max-width: 100%;
+.iframe-container {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.iframe-container iframe {
+  display: block;
 }
 </style>
