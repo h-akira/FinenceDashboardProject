@@ -15,7 +15,7 @@
               </label>
             </div>
           </div>
-          <div class="d-flex align-items-center gap-2">
+          <div class="d-none d-lg-flex align-items-center gap-2">
             <label for="columnsSelect" class="mb-0">横配置数:</label>
             <select
               id="columnsSelect"
@@ -45,6 +45,7 @@ import Exchange from './Exchange.vue'
 import JP225 from './JP225.vue'
 import Calendar from './Calendar.vue'
 import MarketSummary from './MarketSummary.vue'
+import M2 from './M2.vue'
 
 export default {
   name: 'Home',
@@ -52,7 +53,8 @@ export default {
     Exchange,
     JP225,
     Calendar,
-    MarketSummary
+    MarketSummary,
+    M2
   },
   data() {
     return {
@@ -61,7 +63,8 @@ export default {
         { id: 'market-summary', label: 'MarketSummary', component: 'MarketSummary', visible: true },
         { id: 'calendar', label: 'Calendar', component: 'Calendar', visible: true },
         { id: 'exchange', label: 'Exchange', component: 'Exchange', visible: true },
-        { id: 'jp225', label: 'JP225', component: 'JP225', visible: true }
+        { id: 'jp225', label: 'JP225', component: 'JP225', visible: true },
+        { id: 'm2', label: 'M2', component: 'M2', visible: true }
       ]
     }
   },
