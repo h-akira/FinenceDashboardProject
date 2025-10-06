@@ -1,5 +1,16 @@
 <template>
   <div class="jp225-component">
+    <div class="mb-3">
+      <select
+        id="indicatorSelectJP225"
+        class="form-select w-auto"
+        v-model="selectedIndicator"
+        @change="updateWidget">
+        <option value="Ichimoku">一目均衡表</option>
+        <option value="Bollinger_SMA">BB+SMA</option>
+      </select>
+    </div>
+
     <div class="tradingview-widget-container">
       <div id="tradingview_jp225"></div>
       <div class="tradingview-widget-copyright">
@@ -22,6 +33,7 @@ export default {
   name: 'JP225',
   data() {
     return {
+      selectedIndicator: 'Ichimoku',
       currentHeight: 700,
       widget: null,
       isResizing: false
@@ -47,6 +59,8 @@ export default {
     },
 
     createWidget() {
+      const studiesArray = this.getStudiesArray(this.selectedIndicator)
+
       if (this.widget) {
         this.widget.remove()
       }
@@ -60,10 +74,21 @@ export default {
         theme: 'light',
         style: '1',
         locale: 'ja',
+        details: true,
         enable_publishing: false,
         allow_symbol_change: true,
+        studies: studiesArray,
         container_id: 'tradingview_jp225'
       })
+    },
+
+    getStudiesArray(indicator) {
+      if (indicator === 'Ichimoku') {
+        return ['STD;Ichimoku%1Cloud']
+      } else if (indicator === 'Bollinger_SMA') {
+        return ['STD;Bollinger_Bands', 'STD;SMA']
+      }
+      return []
     },
 
     updateWidget() {
