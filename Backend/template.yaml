@@ -5,7 +5,6 @@ Description: >
 
   Finance Dashboard Backend built with WAMBDA framework
 
-
 Parameters:
   DEBUG:
     Type: String
