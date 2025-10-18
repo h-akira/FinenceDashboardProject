@@ -15,7 +15,7 @@ const routes = [
 ]
 
 const router = createRouter({
-  history: createWebHistory('/app/'),
+  history: createWebHistory('/'),
   routes
 })
 
@@ -30,11 +30,11 @@ router.beforeEach(async (to, from, next) => {
         next()
       } else {
         // Redirect to backend login
-        window.location.href = '/accounts/login?next=' + encodeURIComponent('/app' + to.fullPath)
+        window.location.href = '/accounts/login?next=' + encodeURIComponent(to.fullPath)
       }
     } catch (error) {
       console.error('Auth check failed:', error)
-      window.location.href = '/accounts/login?next=' + encodeURIComponent('/app' + to.fullPath)
+      window.location.href = '/accounts/login?next=' + encodeURIComponent(to.fullPath)
     }
   } else {
     next()

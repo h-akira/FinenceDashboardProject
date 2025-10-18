@@ -3,7 +3,7 @@
     <!-- Bootstrap Navbar -->
     <nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
       <div class="container-fluid">
-        <a class="navbar-brand" href="/app/">FinanceDashboard v1.0</a>
+        <a class="navbar-brand" href="/">FinanceDashboard v1.0</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
@@ -60,8 +60,7 @@ export default {
         window.history.replaceState({}, '', url.pathname + url.search)
 
         // Navigate to the target path using Vue Router
-        const appPath = nextPath.replace(/^\/app/, '') || '/'
-        this.$router.push(appPath)
+        this.$router.push(nextPath || '/')
       }
     }
   }
