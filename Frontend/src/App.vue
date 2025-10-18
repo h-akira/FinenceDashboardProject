@@ -10,9 +10,6 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <div class="ms-auto d-flex align-items-center">
             <template v-if="authStatus && authStatus.authenticated">
-              <span class="text-light me-3">
-                <span class="user-icon">👤</span> {{ authStatus.username }}
-              </span>
               <a href="/accounts/profile" class="btn btn-outline-light me-2">Profile</a>
               <a href="/accounts/logout" class="btn btn-outline-light">Logout</a>
             </template>
